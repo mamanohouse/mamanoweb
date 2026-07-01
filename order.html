@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMANO HOUSE — Bilik Harapan (Order)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="container nav-container flex-center">
+    <a href="index.html" class="color-name nav-brand">MAMANO HOUSE</a>
+  </nav>
+
+  <main class="container mt-lg mb-lg">
+    <div class="card p-md">
+      <h2 class="section-title text-center mb-xs">Bilik Harapan</h2>
+      <p class="text-sm text-muted text-center mb-xs">Pilih warna pashmina yang akan menemani langkah hangatmu.</p>
+      
+      <!-- Label Harga -->
+      <p class="text-center text-sm text-gold font-bold mb-md">Harga Pashmina Premium: Rp 128.000 / pcs</p>
+
+      <form id="form-order" class="flex-column gap-sm">
+        
+        <!-- KELOMPOK 1: NATURAL -->
+        <h3 class="text-sm font-bold text-green border-top p-y-sm mt-sm">Varian Natural</h3>
+        <div class="flex-column gap-xs">
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Maroon</span>
+            <input type="number" min="0" data-color="Maroon" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Navy</span>
+            <input type="number" min="0" data-color="Navy" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Black</span>
+            <input type="number" min="0" data-color="Black" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Misty Grey</span>
+            <input type="number" min="0" data-color="Misty Grey" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+        </div>
+
+        <!-- KELOMPOK 2: NATURE -->
+        <h3 class="text-sm font-bold text-green border-top p-y-sm mt-sm">Varian Nature</h3>
+        <div class="flex-column gap-xs">
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Dusty Pink</span>
+            <input type="number" min="0" data-color="Dusty Pink" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Sage Green</span>
+            <input type="number" min="0" data-color="Sage Green" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Lavender</span>
+            <input type="number" min="0" data-color="Lavender" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+        </div>
+
+        <!-- KELOMPOK 3: COFFEE -->
+        <h3 class="text-sm font-bold text-green border-top p-y-sm mt-sm">Varian Coffee</h3>
+        <div class="flex-column gap-xs">
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Moca</span>
+            <input type="number" min="0" data-color="Moca" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">Cappuccino</span>
+            <input type="number" min="0" data-color="Cappuccino" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+          <div class="d-flex justify-content-between align-items-center bg-light p-sm radius-sm border-dashed">
+            <span class="text-sm font-bold">White Creamer</span>
+            <input type="number" min="0" data-color="White Creamer" class="color-input p-xs radius-sm border-dashed text-center" placeholder="0 pcs">
+          </div>
+        </div>
+
+        <div class="flex-column gap-xs mt-md">
+          <label for="order-address" class="text-xs font-bold text-green">Alamat Pengiriman Lengkap</label>
+          <textarea id="order-address" required rows="3" placeholder="Tuliskan alamat lengkap agar kurir tidak tersesat" class="p-sm radius-sm border-dashed w-100"></textarea>
+        </div>
+
+        <div class="flex-column gap-xs mt-sm">
+          <label for="order-referral" class="text-xs font-bold text-green">Kode Referral (Opsional)</label>
+          <input type="text" id="order-referral" placeholder="Contoh: MMN-12345" class="p-sm radius-sm border-dashed w-100">
+          <span class="text-xs text-muted">Dapatkan potongan khusus jika punya kodenya!</span>
+        </div>
+
+        <div id="order-error" class="text-xs btn-danger p-xs radius-sm text-center hide-element mt-sm"></div>
+
+        <button type="submit" id="btn-submit-order" class="btn btn-gold w-100 mt-md">Kirimkan Harapan (Order)</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Pop-out Konfirmasi Custom MAMANO -->
+  <div id="custom-confirm-modal" class="modal-overlay flex-center">
+    <div class="card p-md" style="width: 90%; max-width: 400px; margin: auto; background: var(--color-primary);">
+      <h3 class="text-center text-green font-bold mb-sm">MAMANO HOUSE</h3>
+      <div id="confirm-invoice-content" class="text-sm flex-column gap-xs mb-md">
+        <!-- Isi nota belanjaan akan disuntik otomatis oleh JavaScript di sini -->
+      </div>
+      <div class="d-flex gap-sm">
+        <button type="button" id="btn-confirm-yes" class="btn btn-gold w-100">Konfirmasi</button>
+        <button type="button" id="btn-confirm-no" class="btn btn-border w-100">Batalkan</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/order.js"></script>
+</body>
+</html>

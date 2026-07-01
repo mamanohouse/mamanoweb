@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMANO HOUSE — Kamar Profil Anda</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="container d-flex justify-content-between align-items-center nav-container">
+    <a href="index.html" class="color-name nav-brand">MAMANO HOUSE</a>
+    <div id="nav-menu" class="d-flex nav-menu-gap">
+      <button id="btn-profile-trigger" class="btn btn-border btn-round btn-text-xs">☰</button>
+    </div>
+  </nav>
+
+  <div id="modal-overlay" class="modal-overlay"></div>
+
+  <div id="profile-drawer" class="profile-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Menu Navigasi</h3>
+      <button id="drawer-close" class="drawer-close">✕</button>
+    </div>
+    <div class="d-flex flex-column gap-sm mt-md">
+      <a href="profile.html" class="btn btn-gold w-100 text-left">Kamar Profil Anda</a>
+      <a href="order.html" class="btn btn-border w-100 text-left">Bilik Harapan (Order)</a>
+      <button id="btn-logout" class="btn btn-danger w-100 text-left mt-lg">Keluar Rumah</button>
+    </div>
+  </div>
+
+  <!-- Notifikasi Aman Pengganti Alert -->
+  <div id="inline-notification" class="container mt-sm text-center text-xs font-bold radius-sm p-sm hide-element"></div>
+
+  <main class="container d-flex flex-column gap-md mt-md mb-lg">
+    
+    <!-- IDENTITAS UTAMA -->
+    <div class="card w-100 p-md" style="max-width: 600px; margin: 0 auto;">
+      <div class="d-flex justify-content-between align-items-center border-top pb-xs mb-sm">
+        <h2 class="text-md text-green font-bold">Identitas Anda</h2>
+        <span id="user-role-badge" class="text-xs font-bold text-gold bg-light p-xs radius-sm">Memuat Peran...</span>
+      </div>
+
+      <div class="d-flex flex-column gap-xs text-sm">
+        <div class="d-flex justify-content-between border-dashed p-xs">
+          <span class="text-muted">Nama Lengkap</span>
+          <span id="profile-name" class="font-bold text-secondary">—</span>
+        </div>
+        <div class="d-flex justify-content-between border-dashed p-xs">
+          <span class="text-muted">Email Aktif</span>
+          <span id="profile-email" class="font-bold text-secondary">—</span>
+        </div>
+        <div class="d-flex justify-content-between border-dashed p-xs">
+          <span class="text-muted">WhatsApp</span>
+          <span id="profile-whatsapp" class="font-bold text-secondary">—</span>
+        </div>
+        <div class="d-flex justify-content-between border-dashed p-xs">
+          <span class="text-muted">Pekerjaan</span>
+          <span id="profile-job" class="font-bold text-secondary">—</span>
+        </div>
+        <div class="d-flex flex-column gap-xs p-xs">
+          <span class="text-muted">Alamat Pengiriman Rumah</span>
+          <div class="card bg-light p-xs text-secondary">
+            <p id="profile-address" class="font-bold mb-xs">—</p>
+            <p class="text-xs">
+              RT <span id="profile-rt">—</span> / RW <span id="profile-rw">—</span>, 
+              Kel. <span id="profile-ward">—</span>, Kec. <span id="profile-subdistrict">—</span>
+            </p>
+            <p class="text-xs font-bold mt-xs">
+              Kode Pos: <span id="profile-postal">—</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PELACAK PESANAN -->
+    <div id="section-order-tracker" class="card w-100 p-md" style="max-width: 600px; margin: 0 auto;">
+      <h3 class="text-md text-green font-bold border-top pb-xs mb-sm">Pelacak Pesanan Komunitas</h3>
+      
+      <div id="order-tracker-container" class="d-flex flex-column gap-sm">
+        <p class="text-center text-muted text-sm p-md">Belum ada riwayat pesanan di bilik harapan.</p>
+      </div>
+    </div>
+
+    <!-- PANEL SALES PARTNER -->
+    <div id="section-sales-dashboard" class="card w-100 p-md hide-element" style="max-width: 600px; margin: 0 auto;">
+      <h3 class="text-md text-green font-bold border-top pb-xs mb-sm">Panel Sales Partner</h3>
+      
+      <div class="card text-center bg-light p-sm mb-md">
+        <span class="text-muted text-xs mb-xs block">Kode Referral Aktif Anda</span>
+        <strong id="sales-ref-code" class="text-lg text-gold font-bold">MMN----</strong>
+        <p class="text-xs text-muted mt-xs">*Bagikan kode sakti ini ke calon pembeli untuk memberikan mereka potongan Rp3.000 sekaligus mengamankan komisi Anda Rp5.000 per item.</p>
+      </div>
+
+      <h4 class="text-sm text-secondary mb-xs font-bold">Statistik Kinerja</h4>
+      <div class="d-flex gap-xs mb-md flex-wrap">
+        <div class="card text-center p-xs" style="flex: 1; min-width: 100px;">
+          <span class="text-muted text-xs font-bold">Total Order</span>
+          <strong id="stat-total-order" class="text-md text-secondary block mt-xs">0</strong>
+        </div>
+        <div class="card text-center p-xs" style="flex: 1; min-width: 100px;">
+          <span class="text-xs font-bold" style="color: #155724;">Berhasil</span>
+          <strong id="stat-success-order" class="text-md block mt-xs" style="color: #155724;">0</strong>
+        </div>
+        <div class="card text-center p-xs" style="flex: 1; min-width: 100px;">
+          <span class="text-xs font-bold" style="color: #721c24;">Gagal</span>
+          <strong id="stat-failed-order" class="text-md block mt-xs" style="color: #721c24;">0</strong>
+        </div>
+        <div class="card text-center p-xs bg-light" style="flex: 1; min-width: 120px; border: 1px solid var(--color-accent-gold);">
+          <span class="text-xs font-bold text-gold">Total Komisi</span>
+          <strong id="stat-total-commission" class="text-md text-gold block mt-xs">Rp0</strong>
+        </div>
+      </div>
+
+      <h4 class="text-sm text-secondary mb-xs font-bold">Daftar Konsumen Saya</h4>
+      <div class="w-100" style="overflow-x: auto; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+        <table class="w-100 text-left text-xs bg-light" style="border-collapse: collapse;">
+          <thead>
+            <tr class="text-secondary border-dashed">
+              <th class="p-xs">Nama</th>
+              <th class="p-xs text-center">Qty</th>
+              <th class="p-xs text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody id="table-customers-body" class="text-secondary">
+            <tr>
+              <td colspan="3" class="p-sm text-center text-muted">Belum ada konsumen yang menggunakan kode Anda.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Gunakan langsung CDN dan script dari ekosistem kita -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

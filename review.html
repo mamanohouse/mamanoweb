@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMANO HOUSE — Apa Kata Mereka</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="container nav-container flex-center">
+    <a href="index.html" class="color-name nav-brand">MAMANO HOUSE</a>
+  </nav>
+
+  <main class="container mt-md mb-lg">
+    <div class="text-center mb-md">
+      <h2 class="section-title mb-xs">Apa Kata Mereka</h2>
+      <p class="text-muted text-sm">Untaian kisah ketulusan dan kehangatan dari hati yang telah memeluk koleksi pashmina MAMANO House.</p>
+    </div>
+
+    <div id="review-stats" class="card text-center mb-md p-md border-dashed hide-element">
+      <h3 class="text-lg text-gold font-bold mb-xs" id="stat-avg-rating">0.0 <span class="text-sm">/ 5</span></h3>
+      <p class="text-xs text-muted" id="stat-total-reviews">Berdasarkan 0 kisah pelanggan</p>
+    </div>
+
+    <div id="reviews-container" class="flex-column gap-sm mb-md">
+      <div class="text-center text-muted text-sm p-md">Memuat untaian kisah hangat...</div>
+    </div>
+
+    <div id="review-form-container" class="card p-md hide-element">
+      <h3 class="text-md font-bold text-green mb-sm border-top pt-xs" id="form-review-title">Bagikan Kisah Hangat Anda</h3>
+      <p class="text-xs text-muted mb-sm">Bercerita sebagai: <strong id="reviewer-name-display" class="text-secondary"></strong></p>
+      
+      <form id="form-review" class="flex-column gap-sm">
+        <input type="hidden" id="review-id" value="">
+        
+        <div class="flex-column gap-xs">
+          <label for="review-rating" class="text-xs font-bold text-green">Rating Kenyamanan</label>
+          <select id="review-rating" required class="p-xs radius-sm border-dashed w-100 bg-light">
+            <option value="5">★★★★★ (Sangat Nyaman)</option>
+            <option value="4">★★★★☆ (Nyaman)</option>
+            <option value="3">★★★☆☆ (Cukup)</option>
+            <option value="2">★★☆☆☆ (Kurang Nyaman)</option>
+            <option value="1">★☆☆☆☆ (Kecewa)</option>
+          </select>
+        </div>
+
+        <div class="flex-column gap-xs">
+          <label for="review-comment" class="text-xs font-bold text-green">Untaian Kesan</label>
+          <textarea id="review-comment" required rows="4" minlength="10" maxlength="500" placeholder="Bagaimana rasanya memeluk kehangatan pashmina MAMANO? (10 - 500 karakter)" class="p-sm radius-sm border-dashed w-100"></textarea>
+          <div class="text-xs text-muted text-right"><span id="char-count">0</span> / 500</div>
+        </div>
+
+        <div id="review-error-message" class="text-xs btn-danger p-xs radius-sm text-center hide-element"></div>
+        <div id="review-success-message" class="text-xs bg-light text-green border-dashed p-xs radius-sm text-center hide-element"></div>
+
+        <button type="submit" id="btn-submit-review" class="btn btn-gold w-100 mt-xs">Kirim Ulasan</button>
+      </form>
+    </div>
+
+    <div id="login-prompt-container" class="card p-md text-center bg-light border-dashed mt-md hide-element">
+      <p class="text-sm text-muted mb-sm">Silakan masuk terlebih dahulu untuk membagikan pengalaman Anda.</p>
+      <a href="login.html" class="btn btn-border text-xs">Masuk ke Rumah</a>
+    </div>
+    
+    <div class="text-center mt-md">
+      <a href="index.html" class="btn btn-border text-xs w-100">Kembali ke Beranda</a>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/review.js"></script>
+</body>
+</html>

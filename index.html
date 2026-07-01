@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMANO HOUSE — Sehangat Rumah, Setulus Cahaya</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="container d-flex justify-content-between align-items-center nav-container">
+    <a href="index.html" class="color-name nav-brand">MAMANO HOUSE</a>
+    <div id="nav-menu" class="d-flex nav-menu-gap">
+      <a href="order.html" id="btn-order-redirect" class="btn btn-gold btn-text-xs">Order</a>
+      <button id="btn-profile-trigger" class="btn btn-border btn-round btn-text-xs hide-element">☰</button>
+      <a href="login.html" id="btn-login-redirect" class="btn btn-border btn-text-xs">Masuk</a>
+    </div>
+  </nav>
+
+  <div id="modal-overlay" class="modal-overlay"></div>
+
+  <div id="profile-drawer" class="profile-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Menu Navigasi</h3>
+      <button id="drawer-close" class="drawer-close">✕</button>
+    </div>
+    <div class="d-flex flex-column drawer-menu-container gap-sm">
+      <a href="profile.html" class="btn btn-border w-100 text-left">Kamar Profil Anda</a>
+      <a href="order.html" class="btn btn-gold w-100 text-left">Bilik Harapan (Order)</a>
+      <button id="btn-logout" class="btn btn-danger w-100 text-left drawer-logout-btn">Keluar Rumah</button>
+    </div>
+  </div>
+
+  <header class="container text-center hero-section">
+    <p class="text-gold hero-quote">"Sehangat Rumah, Setulus Cahaya."</p>
+    <p class="text-muted hero-subtitle mb-xs">Menghadirkan modest wear premium yang lahir dari kehangatan, dipilih oleh komunitas, dan dibuat dengan penuh ketulusan.</p>
+    <p class="text-muted hero-subtitle text-sm mb-sm">Membawa kehangatan Mama No ke dalam setiap langkahmu.</p>
+    <p class="text-gold hero-hashtag">#PancarkanKenyamananmu</p>
+    <a href="order.html" class="btn btn-gold mt-md">Pilih Warna Favoritmu</a>
+  </header>
+
+  <main class="container main-container">
+    <section class="card section-card bg-light text-center">
+      <h2 class="section-title">Sebuah Dedikasi & Langkah Penuh Cahaya</h2>
+      <p class="paragraph-justify mb-sm text-sm">
+        MAMANO House lahir dari sebuah ruang rindu, rasa cinta, dan penghormatan mendalam seorang anak kepada almarhumah ibundanya, Ibu Nurhayati. Semasa hidupnya, beliau yang akrab disapa "Mama No" adalah sosok ibu yang hangat bagi semua orang terdekatnya. Pintu rumahnya selalu terbuka lebar sebagai tempat bernaung, menjamu, dan memberikan pelukan kenyamanan terbaik bagi siapa pun yang sedang dirundung lelah dan masalah di dunia luar.
+      </p>
+      <p class="paragraph-justify mb-sm text-sm">
+        Dari warisan ketulusan itulah, MAMANO House didirikan untuk menghidupkan kembali kehangatan rumah tersebut dan membagikannya kepada dunia melalui lini busana muslimah (modest wear). Nama "MAMANO" sendiri membawa esensi dari nama asli beliau, "Nur" yang berarti Cahaya. Filosofi ini melambangkan sebuah kasih sayang yang tulus—sebuah rasa yang tidak hanya menghangatkan hati, tetapi juga mampu menerangi dan memancarkan energi positif bagi lingkungan sekitar.
+      </p>
+      <p class="paragraph-justify font-bold text-green text-sm">
+        Kami hadir agar kamu dapat merasakan pelukan kenyamanan yang sama seperti hangatnya rumah Mama No, serta siap untuk #PancarkanKenyamananmu menjadi cahaya di mana pun berada.
+      </p>
+    </section>
+
+    <section class="card section-card mt-md text-center">
+      <h3 class="section-subtitle-gold">Filosofi Bisnis</h3>
+      <p class="quote-text mb-sm">
+        "Produced by Demand, Powered by Community."
+      </p>
+      <p class="text-muted text-sm">
+        MAMANO percaya bahwa di balik setiap helai produk yang dihadirkan, tumbuh sejuta kebaikan dan manfaat yang tulus bagi setiap insan yang memakainya.
+      </p>
+    </section>
+    <section class="mt-lg">
+      <h2 class="section-title text-center">Colour Race</h2>
+      <p class="text-muted text-center text-sm mb-md">Dukung warna favoritmu di setiap kategori agar mencapai target kuota produksi minimum (42 pcs)!</p>
+      
+      <div id="colour-race-container" class="color-race-container">
+        <p class="text-muted text-center text-sm p-md">Memuat arena balap warna...</p>
+      </div>
+    </section>
+
+    <section class="mt-lg">
+      <h2 class="section-title text-center">Review Customer</h2>
+      <p class="text-muted text-center text-xs mb-sm">Contoh Ulasan Pelanggan Kami</p>
+      <div class="d-flex flex-column gap-sm">
+        <div class="card bg-light p-sm">
+          <div class="d-flex justify-content-between mb-xs">
+            <div class="review-author text-sm font-bold">Sarah <span class="text-muted text-xs font-normal">• Bandung</span></div>
+            <div class="text-gold text-sm">★★★★★</div>
+          </div>
+          <p class="text-sm">"Bahannya benar-benar adem dan tidak licin sama sekali. Berasa didekap kenyamanan rumah sendiri!"</p>
+        </div>
+        <div class="card bg-light p-sm">
+          <div class="d-flex justify-content-between mb-xs">
+            <div class="review-author text-sm font-bold">Nisa <span class="text-muted text-xs font-normal">• Jakarta</span></div>
+            <div class="text-gold text-sm">★★★★★</div>
+          </div>
+          <p class="text-sm">"Sage Green-nya anggun banget. Jahitan rapi dan gampang dibentuk walau buru-buru."</p>
+        </div>
+        <div class="card bg-light p-sm">
+          <div class="d-flex justify-content-between mb-xs">
+            <div class="review-author text-sm font-bold">Aulia <span class="text-muted text-xs font-normal">• Surabaya</span></div>
+            <div class="text-gold text-sm">★★★★☆</div>
+          </div>
+          <p class="text-sm">"Kualitas semi premium tapi harga mahasiswa banget apalagi pakai kode referral dari temen."</p>
+        </div>
+      </div>
+      <div class="text-center mt-md">
+        <a href="review.html" class="btn btn-border text-xs">Lihat Semua Review</a>
+      </div>
+    </section>
+
+    <section class="mt-lg">
+      <h2 class="section-title text-center">Cara Kerja</h2>
+      <div class="card bg-light p-sm">
+<ol class="ordered-list p-left-sm text-sm flex-column gap-xs">
+  <li>
+    <strong>Pilih Favoritmu:</strong>
+    Tentukan warna atau produk yang paling kamu sukai. Tahap ini belum memerlukan pembayaran dan bertujuan untuk mengumpulkan minat komunitas.
+  </li>
+
+  <li>
+    <strong>Tunggu Target Tercapai:</strong>
+    Bersama komunitas, kita akan mengumpulkan pesanan hingga mencapai kuota minimum produksi.
+  </li>
+
+  <li>
+    <strong>Pembayaran DP 75%:</strong>
+    Setelah target tercapai, kami akan menghubungimu untuk melakukan pembayaran DP sebagai tanda dimulainya proses produksi.
+  </li>
+
+  <li>
+    <strong>Pelunasan & Produksi:</strong>
+    Setelah proses produksi berjalan dan mendekati selesai, kamu akan diminta melakukan pelunasan sebelum produk dikirim.
+  </li>
+
+  <li>
+    <strong>Pantau & Terima Pesananmu:</strong>
+    Seluruh perkembangan produksi dapat dipantau melalui website MAMANO House maupun Instagram @mamano.house hingga produk sampai ke rumahmu.
+  </li>
+</ol>
+</section>
+
+    <section class="mt-lg">
+      <h2 class="section-title text-center">Sales Reward</h2>
+      <div class="card p-md text-center">
+        <p class="text-sm mb-sm">
+          Ingin mendapatkan penghasilan tambahan sekaligus membagikan kenyamanan? Bergabunglah menjadi <strong>Sales Partner</strong> kami!
+        </p>
+        <p class="text-sm font-bold text-green mb-sm">
+          Dapatkan komisi Rp5.000 setelah pembayaran pelanggan selesai dikonfirmasi, untuk setiap helai produk yang menggunakan kodemu.
+        </p>
+        <a href="register.html" class="btn btn-border-gold text-xs">Daftar Jadi Sales</a>
+      </div>
+    </section>
+
+    <section class="mt-lg mb-md">
+      <h2 class="section-title text-center">FAQ</h2>
+      <div class="d-flex flex-column gap-xs">
+        <div class="card p-sm">
+          <h4 class="faq-question text-sm text-green mb-xs">Apakah saya harus langsung membayar saat order?</h4>
+          <p class="faq-answer text-xs text-muted">Tidak. Tahap awal murni untuk market validation. Kamu baru akan diminta membayar DP 75% jika target kuota warna pilihanmu sudah terpenuhi.</p>
+        </div>
+        <div class="card p-sm">
+          <h4 class="faq-question text-sm text-green mb-xs">Bagaimana jika kuota warna tidak tercapai?</h4>
+          <p class="faq-answer text-xs text-muted">Jika kuota minimum (42 pcs) tidak tercapai, kamu akan diberikan pilihan untuk beralih ke warna lain yang lolos target, menunggu antrean baru, atau membatalkan pesanan.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-lg text-center contact-section">
+      <h2 class="section-title text-green">Kontak Kami</h2>
+      <p class="text-sm text-muted mb-sm">Punya pertanyaan atau ingin menyapa? Jangan ragu hubungi kami.</p>
+      <a href="https://instagram.com/mamano.house" target="_blank" class="btn btn-border text-green font-bold text-xs no-underline">Instagram @mamano.house</a>
+    </section>
+  </main>
+
+  <footer class="container text-center footer-container mt-lg border-top p-y-lg">
+    <div class="ads-slot bg-light border-dashed radius-sm mb-sm flex-center min-h-60">
+      <span class="text-muted text-xs">[ Slot Iklan Google AdSense ]</span>
+    </div>
+    <p class="copyright-text text-xs text-muted mb-xs">© 2026 MAMANO House. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <script src="js/supabase-config.js"></script>
+  <script src="js/leaderboard.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

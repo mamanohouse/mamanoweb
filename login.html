@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMANO HOUSE — Masuk Rumah</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="container nav-container flex-center">
+    <a href="index.html" class="color-name nav-brand">MAMANO HOUSE</a>
+  </nav>
+
+  <main class="container mt-lg mb-lg">
+    <div class="card p-md">
+      <h2 class="section-title text-center mb-xs">Selamat Datang Kembali</h2>
+      <p class="text-sm text-muted text-center mb-md">Pintu rumah selalu terbuka untukmu. Silakan masuk.</p>
+
+      <form id="form-login" class="flex-column gap-sm">
+        
+        <div class="flex-column gap-xs">
+          <label for="login-email" class="text-xs font-bold text-green">Alamat Email</label>
+          <input type="email" id="login-email" required placeholder="email@contoh.com" class="p-xs radius-sm border-dashed w-100">
+        </div>
+
+        <div class="flex-column gap-xs">
+          <label for="login-password" class="text-xs font-bold text-green">Kata Sandi</label>
+          <div class="d-flex gap-xs w-100">
+            <input type="password" id="login-password" required placeholder="Masukkan kata sandi" class="p-xs radius-sm border-dashed w-100">
+            <button type="button" id="btn-toggle-password" class="btn btn-border text-xs" title="Tampilkan/Sembunyikan Sandi">LIHAT</button></button>
+          </div>
+          <a href="#" id="link-forgot-password" class="text-xs text-muted no-underline text-right mt-xs">Lupa Kata Sandi?</a>
+        </div>
+
+        <div id="login-error" class="text-xs btn-danger p-xs radius-sm text-center hide-element"></div>
+
+        <button type="submit" id="btn-login-submit" class="btn btn-gold w-100 mt-sm">Masuk</button>
+      </form>
+
+      <p class="text-center text-xs text-muted mt-md">Belum punya kunci rumah? <a href="register.html" class="text-green font-bold no-underline">Daftar di sini</a></p>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMANO HOUSE — Daftar Akun</title>
+  <link class="css-link" rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="container d-flex justify-content-between align-items-center" style="padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); border-bottom: 1px solid var(--color-border);">
+    <a href="index.html" class="color-name" style="text-decoration: none; font-size: var(--font-size-md);">MAMANO HOUSE</a>
+    <a href="login.html" class="btn" style="border: 1px solid var(--color-border); font-size: var(--font-size-xs);">Batal</a>
+  </nav>
+
+  <main class="container d-flex flex-column align-items-center justify-content-center" style="padding-top: var(--spacing-md); padding-bottom: var(--spacing-md);">
+    <div class="card w-100" style="max-width: 400px; padding: var(--spacing-md);">
+      <h2 class="text-center" style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-xs); color: var(--color-supporting-green);">Mulai Langkahmu</h2>
+      <p class="text-center text-muted" style="font-size: var(--font-size-sm); margin-bottom: var(--spacing-md);">Daftarkan dirimu untuk menjadi bagian dari kehangatan komunitas kami.</p>
+      
+      <form id="form-register" class="d-flex flex-column" style="gap: var(--spacing-sm);">
+        
+        <h3 style="font-size: var(--font-size-sm); color: var(--color-accent-gold); border-bottom: 1px solid var(--color-border); padding-bottom: 4px; margin-top: 4px;">1. Pilih Peran Anda</h3>
+        
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-role" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Mendaftar Sebagai</label>
+          <select id="reg-role" required style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm); background-color: var(--color-primary); color: var(--color-secondary);">
+            <option value="customer" selected>Konsumen (Pembeli)</option>
+            <option value="sales">Sales Partner (Dapatkan Potongan & Komisi)</option>
+          </select>
+          <p style="font-size: var(--font-size-xs); color: var(--color-muted); line-height: 1.3; margin-top: 2px;">*Semua peran tetap bisa melakukan pembelian produk untuk kebutuhan pribadi.</p>
+        </div>
+
+        <h3 style="font-size: var(--font-size-sm); color: var(--color-accent-gold); border-bottom: 1px solid var(--color-border); padding-bottom: 4px; margin-top: var(--spacing-xs);">2. Data Diri</h3>
+        
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-name" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Nama Lengkap</label>
+          <input type="text" id="reg-name" required placeholder="Nama sesuai KTP" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+        </div>
+
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-dob" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Tanggal Lahir</label>
+          <input type="date" id="reg-dob" required style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+        </div>
+
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-whatsapp" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Nomor WhatsApp Aktif</label>
+          <input type="tel" id="reg-whatsapp" required placeholder="Contoh: 08123456789" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+        </div>
+
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-job" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Pekerjaan <span style="color: var(--color-muted); font-weight: 400;">(Opsional)</span></label>
+          <input type="text" id="reg-job" placeholder="Contoh: Karyawan, Mahasiswi" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+        </div>
+
+        <h3 style="font-size: var(--font-size-sm); color: var(--color-accent-gold); border-bottom: 1px solid var(--color-border); padding-bottom: 4px; margin-top: var(--spacing-xs);">3. Alamat Rumah</h3>
+
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-address" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Alamat Lengkap (Jalan / No. Rumah)</label>
+          <textarea id="reg-address" required placeholder="Nama jalan, nomor rumah, nomor unit" rows="2" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm); resize: none;"></textarea>
+        </div>
+
+        <div class="d-flex" style="gap: var(--spacing-xs);">
+          <div class="d-flex flex-column" style="gap: 4px; flex: 1;">
+            <label for="reg-rt" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">RT</label>
+            <input type="text" id="reg-rt" required placeholder="001" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+          </div>
+          <div class="d-flex flex-column" style="gap: 4px; flex: 1;">
+            <label for="reg-rw" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">RW</label>
+            <input type="text" id="reg-rw" required placeholder="002" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+          </div>
+          <div class="d-flex flex-column" style="gap: 4px; flex: 1;">
+            <label for="reg-postal" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Kode Pos</label>
+            <input type="text" id="reg-postal" required placeholder="12345" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+          </div>
+        </div>
+
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-subdistrict" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Kecamatan</label>
+          <input type="text" id="reg-subdistrict" required placeholder="Nama kecamatan" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+        </div>
+
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-ward" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Kelurahan</label>
+          <input type="text" id="reg-ward" required placeholder="Nama kelurahan" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+        </div>
+
+        <h3 style="font-size: var(--font-size-sm); color: var(--color-accent-gold); border-bottom: 1px solid var(--color-border); padding-bottom: 4px; margin-top: var(--spacing-xs);">4. Keamanan Akun</h3>
+
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-email" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Email Aktif</label>
+          <input type="email" id="reg-email" required placeholder="nama@email.com" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+        </div>
+
+        <div class="d-flex flex-column" style="gap: 4px;">
+          <label for="reg-password" style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-secondary);">Kata Sandi</label>
+          <input type="password" id="reg-password" required placeholder="Minimal 6 karakter" minlength="6" style="width: 100%; padding: var(--spacing-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--font-size-sm);">
+        </div>
+
+        <div id="reg-error" style="display: none; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: var(--spacing-xs); border-radius: var(--radius-sm); font-size: var(--font-size-xs); text-align: center;"></div>
+        <div id="register-success-message" style="display: none; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; padding: var(--spacing-xs); border-radius: var(--radius-sm); font-size: var(--font-size-xs); text-align: center;"></div>
+
+        <button type="submit" id="btn-register-submit" class="btn btn-gold w-100" style="margin-top: var(--spacing-sm); padding: var(--spacing-xs);">Daftar Akun</button>
+      </form>
+
+      <div class="text-center" style="margin-top: var(--spacing-md); font-size: var(--font-size-xs);">
+        <span class="text-muted">Sudah memiliki akun?</span>
+        <a href="login.html" style="color: var(--color-supporting-green); text-decoration: none; font-weight: 600; margin-left: 4px;">Masuk Di Sini</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
