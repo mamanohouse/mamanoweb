@@ -228,3 +228,10 @@ body {
 .drawer-title { font-size: var(--font-size-md); color: var(--color-supporting-green); margin-bottom: 0; }
 .drawer-close { background: none; border: none; font-size: var(--font-size-md); cursor: pointer; color: var(--color-secondary); }
 .drawer-logout-btn { margin-top: var(--spacing-lg); }
+
+.color-input{
+    width:60px;
+    max-width:60px;
+    text-align:center;
+    flex-shrink:0;
+}
