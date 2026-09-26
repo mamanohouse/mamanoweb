@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
           window.location.origin +
           '/reset-password.html'
       }
-    );
+  );
 
   if (error) throw error;
 
