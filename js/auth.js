@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     throw new Error('Gagal membuat kode referral unik.');
   }
 
+
   // ==========================================================
   // REGISTER
   // ==========================================================
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const email = document.getElementById('reg-email').value.trim();
       const password = document.getElementById('reg-password').value;
 
+
       // =========================
       // VALIDASI FRONTEND
       // =========================
@@ -70,7 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       if (!/^\d{10,15}$/.test(whatsapp)) {
-        errorMsg.textContent = "Nomor WhatsApp harus berupa angka, minimal 10 digit dan maksimal 15 digit.";
+        errorMsg.textContent =
+          "Nomor WhatsApp harus berupa angka, minimal 10 digit dan maksimal 15 digit.";
         errorMsg.style.display = 'block';
         submitBtn.textContent = originalBtnText;
         submitBtn.disabled = false;
@@ -78,12 +81,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       if (!window.supabaseClient) {
-        errorMsg.textContent = "Koneksi database terputus. Coba muat ulang halaman ya.";
+        errorMsg.textContent =
+          "Koneksi database terputus. Coba muat ulang halaman ya.";
         errorMsg.style.display = 'block';
         submitBtn.textContent = originalBtnText;
         submitBtn.disabled = false;
         return;
       }
+
 
       try {
 
@@ -98,25 +103,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (checkError) throw checkError;
 
+
         if (existingProfiles && existingProfiles.length > 0) {
 
           const hasEmail = existingProfiles.some(
-            p => p.email &&
-            p.email.toLowerCase() === email.toLowerCase()
+            p =>
+              p.email &&
+              p.email.toLowerCase() === email.toLowerCase()
           );
 
           const hasWhatsapp = existingProfiles.some(
             p => p.whatsapp === whatsapp
           );
 
+
           if (hasEmail && hasWhatsapp) {
             errorMsg.textContent =
               "Maaf, Alamat Email dan Nomor WhatsApp ini sudah terdaftar.";
           }
+
           else if (hasEmail) {
             errorMsg.textContent =
               "Maaf, Alamat Email ini sudah terdaftar.";
           }
+
           else if (hasWhatsapp) {
             errorMsg.textContent =
               "Maaf, Nomor WhatsApp ini sudah terdaftar.";
@@ -126,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
           return;
         }
 
+
         // ==========================================================
         // GENERATE REFERRAL HANYA UNTUK SALES
         // ==========================================================
@@ -134,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (role === 'sales') {
           referralCode = await generateUniqueReferralCode();
         }
+
 
         // ==========================================================
         // REGISTER AUTH
@@ -149,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!authData.user) {
           throw new Error('Gagal membuat akun.');
         }
+
 
         // ==========================================================
         // INSERT PROFILE
@@ -168,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (profileError) throw profileError;
 
+
         alert(
           "Pendaftaran berhasil! Kunci rumahmu sudah aktif. Silakan masuk."
         );
@@ -176,20 +190,100 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'login.html';
 
       }
+
       catch (error) {
 
         errorMsg.textContent =
           "Maaf, terjadi kesalahan: " + error.message;
 
         errorMsg.style.display = 'block';
+
       }
+
       finally {
 
         submitBtn.textContent = originalBtnText;
         submitBtn.disabled = false;
+
       }
+
     });
+
   }
+
+
+  // ==========================================================
+  // LUPA KATA SANDI
+  // ==========================================================
+  const forgotPasswordLink =
+    document.getElementById('link-forgot-password');
+
+  if (forgotPasswordLink) {
+
+    forgotPasswordLink.addEventListener('click', async function (e) {
+
+      e.preventDefault();
+
+      if (!window.supabaseClient) {
+        alert(
+          'Koneksi database terputus. Coba muat ulang halaman ya.'
+        );
+        return;
+      }
+
+
+      const email = window.prompt(
+        'Masukkan alamat email akun MAMANO HOUSE kamu:'
+      );
+
+
+      if (!email || !email.trim()) {
+        return;
+      }
+
+
+      const cleanEmail = email.trim();
+
+
+      try {
+
+        const { error } =
+          await window.supabaseClient.auth.resetPasswordForEmail(
+            cleanEmail,
+            {
+              redirectTo:
+                window.location.origin +
+                window.location.pathname.replace(
+                  /login\.html$/,
+                  'reset-password.html'
+                )
+            }
+          );
+
+
+        if (error) throw error;
+
+
+        alert(
+          'Link untuk mengatur ulang kata sandi sudah dikirim ke email kamu. ' +
+          'Silakan cek inbox atau folder spam.'
+        );
+
+      }
+
+      catch (error) {
+
+        alert(
+          'Gagal mengirim link reset kata sandi: ' +
+          error.message
+        );
+
+      }
+
+    });
+
+  }
+
 
   // ==========================================================
   // LOGIN
@@ -197,34 +291,46 @@ document.addEventListener('DOMContentLoaded', function () {
   if (loginForm) {
 
     loginForm.addEventListener('submit', async function (e) {
+
       e.preventDefault();
 
       const errorMsg = document.getElementById('login-error');
       const submitBtn = document.getElementById('btn-login-submit');
 
+
       if (errorMsg) {
         errorMsg.style.display = 'none';
       }
 
+
       const originalBtnText = submitBtn.textContent;
+
       submitBtn.textContent = 'Memasuki Rumah...';
       submitBtn.disabled = true;
 
-      const email = document.getElementById('login-email').value.trim();
-      const password = document.getElementById('login-password').value;
+
+      const email =
+        document.getElementById('login-email').value.trim();
+
+      const password =
+        document.getElementById('login-password').value;
+
 
       if (!window.supabaseClient) {
 
         if (errorMsg) {
           errorMsg.textContent =
             "Koneksi database terputus. Coba muat ulang halaman ya.";
+
           errorMsg.style.display = 'block';
         }
 
         submitBtn.textContent = originalBtnText;
         submitBtn.disabled = false;
+
         return;
       }
+
 
       try {
 
@@ -234,39 +340,54 @@ document.addEventListener('DOMContentLoaded', function () {
             password
           });
 
+
         if (error) throw error;
+
 
         if (data.user) {
           window.location.href = 'index.html';
         }
 
       }
+
       catch (error) {
 
         if (errorMsg) {
+
           errorMsg.textContent =
             "Email atau kata sandi salah, silakan cek kembali ya.";
+
           errorMsg.style.display = 'block';
+
         }
+
       }
+
       finally {
 
         submitBtn.textContent = originalBtnText;
         submitBtn.disabled = false;
+
       }
+
     });
+
   }
+
 
   // ==========================================================
   // LOGOUT
   // ==========================================================
-  const logoutBtn = document.getElementById('btn-logout');
+  const logoutBtn =
+    document.getElementById('btn-logout');
+
 
   if (logoutBtn) {
 
     logoutBtn.addEventListener('click', async function () {
 
       if (!window.supabaseClient) return;
+
 
       try {
 
@@ -278,12 +399,20 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'index.html';
 
       }
+
       catch (error) {
 
-        alert('Gagal keluar rumah: ' + error.message);
+        alert(
+          'Gagal keluar rumah: ' +
+          error.message
+        );
+
       }
+
     });
+
   }
+
 
   // ==========================================================
   // TOGGLE PASSWORD
@@ -294,6 +423,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const loginPasswordInput =
     document.getElementById('login-password');
 
+
   if (togglePasswordBtn && loginPasswordInput) {
 
     togglePasswordBtn.addEventListener('click', function () {
@@ -301,14 +431,192 @@ document.addEventListener('DOMContentLoaded', function () {
       if (loginPasswordInput.type === 'password') {
 
         loginPasswordInput.type = 'text';
-        togglePasswordBtn.textContent = 'Sembunyikan';
 
-      } else {
+        togglePasswordBtn.textContent =
+          'Sembunyikan';
+
+      }
+
+      else {
 
         loginPasswordInput.type = 'password';
-        togglePasswordBtn.textContent = 'Lihat';
+
+        togglePasswordBtn.textContent =
+          'Lihat';
+
       }
+
     });
+
+  }
+
+
+  // ==========================================================
+  // RESET PASSWORD
+  // ==========================================================
+  const resetPasswordForm =
+    document.getElementById('form-reset-password');
+
+
+  if (resetPasswordForm) {
+
+    resetPasswordForm.addEventListener(
+      'submit',
+      async function (e) {
+
+        e.preventDefault();
+
+
+        const password =
+          document.getElementById('reset-password').value;
+
+        const confirmPassword =
+          document.getElementById(
+            'reset-password-confirm'
+          ).value;
+
+        const errorMsg =
+          document.getElementById('reset-error');
+
+        const successMsg =
+          document.getElementById('reset-success');
+
+        const submitBtn =
+          document.getElementById('btn-reset-submit');
+
+
+        if (errorMsg) {
+
+          errorMsg.style.display = 'none';
+          errorMsg.textContent = '';
+
+        }
+
+
+        if (successMsg) {
+
+          successMsg.style.display = 'none';
+          successMsg.textContent = '';
+
+        }
+
+
+        // =========================
+        // VALIDASI PASSWORD
+        // =========================
+        if (password.length < 8) {
+
+          if (errorMsg) {
+
+            errorMsg.textContent =
+              'Kata sandi minimal 8 karakter ya.';
+
+            errorMsg.style.display = 'block';
+
+          }
+
+          return;
+        }
+
+
+        if (password !== confirmPassword) {
+
+          if (errorMsg) {
+
+            errorMsg.textContent =
+              'Konfirmasi kata sandi tidak sama.';
+
+            errorMsg.style.display = 'block';
+
+          }
+
+          return;
+        }
+
+
+        if (!window.supabaseClient) {
+
+          if (errorMsg) {
+
+            errorMsg.textContent =
+              'Koneksi database terputus. Coba muat ulang halaman ya.';
+
+            errorMsg.style.display = 'block';
+
+          }
+
+          return;
+        }
+
+
+        const originalBtnText =
+          submitBtn.textContent;
+
+        submitBtn.textContent =
+          'Menyimpan...';
+
+        submitBtn.disabled = true;
+
+
+        try {
+
+          const { error } =
+            await window.supabaseClient.auth.updateUser({
+              password: password
+            });
+
+
+          if (error) throw error;
+
+
+          if (successMsg) {
+
+            successMsg.textContent =
+              'Kata sandi berhasil diubah. Kamu akan diarahkan ke halaman login.';
+
+            successMsg.style.display = 'block';
+
+          }
+
+
+          resetPasswordForm.reset();
+
+
+          setTimeout(function () {
+
+            window.location.href =
+              'login.html';
+
+          }, 2000);
+
+        }
+
+        catch (error) {
+
+          if (errorMsg) {
+
+            errorMsg.textContent =
+              'Gagal mengubah kata sandi: ' +
+              error.message;
+
+            errorMsg.style.display = 'block';
+
+          }
+
+        }
+
+        finally {
+
+          submitBtn.textContent =
+            originalBtnText;
+
+          submitBtn.disabled = false;
+
+        }
+
+      }
+    );
+
   }
 
 });
