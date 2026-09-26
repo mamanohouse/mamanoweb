@@ -248,15 +248,14 @@ document.addEventListener('DOMContentLoaded', function () {
       try {
 
         const { error } =
-          await window.supabaseClient.auth.resetPasswordForEmail(
-            cleanEmail,
-            {
-              redirectTo:
-                window.location.origin +
-                window.location.pathname.replace(
-                  /login\.html$/,
-                  'reset-password.html'
-                )
+  await window.supabaseClient.auth.resetPasswordForEmail(
+    cleanEmail,
+    {
+      redirectTo:
+        window.location.origin +
+        '/reset-password.html'
+    }
+  );
             }
           );
 
