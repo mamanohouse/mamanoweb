@@ -247,43 +247,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
       try {
 
-        const { error } =
-  await window.supabaseClient.auth.resetPasswordForEmail(
-    cleanEmail,
-    {
-      redirectTo:
-        window.location.origin +
-        '/reset-password.html'
-    }
+  const { error } =
+    await window.supabaseClient.auth.resetPasswordForEmail(
+      cleanEmail,
+      {
+        redirectTo:
+          window.location.origin +
+          '/reset-password.html'
+      }
+    );
+
+  if (error) throw error;
+
+  alert(
+    'Link untuk mengatur ulang kata sandi sudah dikirim ke email kamu. ' +
+    'Silakan cek inbox atau folder spam.'
   );
-            }
-          );
 
+}
+catch (error) {
 
-        if (error) throw error;
+  alert(
+    'Gagal mengirim link reset kata sandi: ' +
+    error.message
+  );
 
-
-        alert(
-          'Link untuk mengatur ulang kata sandi sudah dikirim ke email kamu. ' +
-          'Silakan cek inbox atau folder spam.'
-        );
-
-      }
-
-      catch (error) {
-
-        alert(
-          'Gagal mengirim link reset kata sandi: ' +
-          error.message
-        );
-
-      }
-
-    });
-
-  }
-
-
+}
+      
   // ==========================================================
   // LOGIN
   // ==========================================================
